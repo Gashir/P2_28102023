@@ -13,7 +13,7 @@ class Point:
     def change_color(self, color) -> None:
         self.color = color
 
-    def info(self):
+    def info(self) -> None:
         print(f'Coordinates: {self.x, self.y}')
 
 
