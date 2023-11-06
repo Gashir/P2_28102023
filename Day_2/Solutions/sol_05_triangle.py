@@ -15,9 +15,9 @@ class Triangle:
         self.a = p1.distance(p2)
         self.b = p2.distance(p3)
         self.c = p3.distance(p1)
-        if (self.a + self.b < self.c or
-            self.b + self.c < self.a or
-            self.a + self.c < self.b):
+        if (self.a + self.b <= self.c or
+            self.b + self.c <= self.a or
+            self.a + self.c <= self.b):
             raise Exception("It's not triangle")
 
     def perimeter(self):
@@ -29,7 +29,7 @@ class Triangle:
 
 
 # Треугольник задан координатами трех точек
-triangle = Triangle(Point(2, 4), Point(6, 8), Point(8, 0))
+triangle = Triangle(Point(2, 4), Point(2, 8), Point(8, 16))
 
 # Задание: 
 # найдите площадь и периметр треугольника, реализовав методы area() и perimeter()
