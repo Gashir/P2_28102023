@@ -24,33 +24,33 @@ class Point(object):
         return f'Point({self.x},{self.y})'
 
     def __str__(self):  # str()
-        return (f'Точка с координатами:'
-                f'(x={self.x},y={self.y})')
+        return f'Точка с координатами(x={self.x},y={self.y})'
 
 
-
+# =====================
 # Примеры для str, repr
+# =====================
 # s1 = "100"
 # i1 = 100
 # print(s1)
 # print(i1)
 # print(str('\not'))
 # print(repr('\not'))
-# # print(r'\not')   # raw string
+# print(r'\not')   # raw string
 # print(repr(s1))  # показать как есть
 # print(str(i1))   # i1.__str__()
 # print(repr(i1))  # i1.__repr__()
-# #
-# # # Такой же механизм работает для функции len()
+#
+# # Такой же механизм работает для функции len()
 # print(len(s1))
 # print(s1.__len__())
 # print('\not'.__len__())
-# print(i1.__len__())  # AttributeError: 'int' object has no attribute '__len__'
+# print(len(i1))  # AttributeError: 'int' object has no attribute '__len__'
 
-# Создали два экземпяра
-p1 = Point(3, 3)
-p2 = Point(4, 4)
-
+# # Создали два экземпяра
+# p1 = Point(3, 3)
+# p2 = Point(4, 4)
+#
 # # Явно вызываем метод to_str()
 # print('Вызов явного метода')
 # print(p1.to_str())
@@ -58,11 +58,11 @@ p2 = Point(4, 4)
 # print('Вызов неявных методов')
 # print(p1)
 # print(p2)
-# #
-# # # Неявно вызываем магические методы __repr__ и __str__
-# # # print сначала ищет __str__(),
-# # # если не находит то использует __repr__()
-# print(str(p1))   # str(p1) -> p1.__str__()
+#
+# # Неявно вызываем магические методы __repr__ и __str__
+# # print сначала ищет __str__(),
+# # если не находит то использует __repr__()
+# print(str(p1))  # str(p1) -> p1.__str__()
 # print(repr(p2))  # repr(p1) -> p2.__repr__()
 #
 # print('=' * 40)
@@ -79,14 +79,15 @@ p2 = Point(4, 4)
 # # Вызвать именно repr()
 # print(p1.__repr__())  # print(repr(p1))
 # print(repr(p1))
-
-# Интроспекция экземпляра p1 (dunder методы)
+#
+# # Интроспекция экземпляра p1 (dunder методы)
 # pprint(dir(p1))
 # print(p1.__sizeof__())
 # help(p1.__sizeof__)
 #
 # # Полезные функции модуля sys
 # import sys
+#
 # print(sys.getsizeof(p1))
 # help(sys.getsizeof)
 # # Количество ссылок на объект
@@ -95,25 +96,26 @@ p2 = Point(4, 4)
 # print(sys.getrefcount(-5))
 # print(sys.getrefcount(256))
 
-
 # Создадим функция для интроспекции
-def func(a=5, b=8):
-    return a + b
+# def func(a=5, b=8):
+#     return a + b
+#
+#
+# # Интроспекция экземпляра func (dunder методы)
+# # pprint(dir(func))
+# pprint(func.__defaults__)
+# pprint(func.__code__.co_argcount)
+# pprint(func.__code__.co_varnames)
+# pprint(type(func))
+#
+# # У функций, которые мы создаем, добавлять атрибуты можно
+# func.name_of_function = 'first function'  # Out: Work
+# print(f'{func.name_of_function = }')
+# print(vars(func))
+#
+# # А у встроенных функций НЕТ!
+# sum.name_of_function = 'sum function'    # Out: Error
 
-
-# Интроспекция экземпляра func (dunder методы)
-pprint(dir(func))
-pprint(func.__defaults__)
-pprint(func.__code__.co_argcount)
-pprint(func.__code__.co_varnames)
-
-# У функций, которые мы создаем, добавлять атрибуты можно
-func.name_of_function = 'first function'  # Out: Work
-print(f'{func.name_of_function = }')
-
-# А у встроенных функций НЕТ!
-sum.name_of_function = 'sum function'    # Out: Error
-
-# # Практика.
-
-
+# =========
+# Практика.
+# =========
