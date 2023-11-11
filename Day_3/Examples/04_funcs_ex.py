@@ -29,12 +29,12 @@ del func
 # ## Можно хранить функции в структурах данных
 # funcs = [bar, str.lower, str.capitalize]
 # print(funcs)
-#
-# # ## Доступ в функциям, хранящимся внутри списка
+# #
+# # # ## Доступ к функциям, хранящимся внутри списка
 # for function in funcs:
 #     print(function.__name__, '->', function('проверка Работы'))
 #
-# # ## Вызов функции как элемента списка по индексу
+# # # ## Вызов функции как элемента списка по индексу
 # print(funcs[0]('первая функция'))
 #
 # # ## Словарь функций
@@ -54,20 +54,20 @@ del func
 #     print(greeting)
 #
 #
-# # ## Вызов функции greet с аргументом - функцией bar
+# # # ## Вызов функции greet с аргументом - функцией bar
 # greet(bar)
 # # greet('hello')  # Error
 # print(callable(bar))  # есть реализация __call__()
 # print(callable('hello'))
 # print(bar.__call__("hello"))  # bar('hello')
-#
+# print(callable(int))
 #
 # # Вторая функция для примера
 # def imp_func(text: str) -> str:
 #     return text.lower() + '. Done!'
-#
-#
-# # Вызов функции greet с аргументом - функцией imp_func
+
+
+# Вызов функции greet с аргументом - функцией imp_func
 # greet(imp_func)
 
 # Полезные модули. Ссылка на документацию
@@ -87,18 +87,19 @@ del func
 # ## Здесь действует распаковка
 # a, b = map(float, input("Enter: ").split())
 # print(f'{a = }, {b = }')
-
-# Здесь отработает
+#
+# # Здесь отработает
 # print(*map(int, '4 8'.split()))
 
 # ## filter
 # def condition(text):
 #     return len(text) > 3
 #
+#
 # # Включаем элемент в итоговый список, если результат работы
 # # функции condition True
 # print(list(filter(condition, ['hello', 'hi', 'привет'])))
-# # Если первый агрумент None, то в итоговую выдачу попадут только truthy falues
+# # Если первый аргумент None, то в итоговую выдачу попадут только truthy values
 # print(tuple(filter(None, [True, 5, 0, '', 8.2, 'hello', False])))
 
 # def add_two(a, b):
@@ -112,21 +113,23 @@ del func
 #
 # from functools import reduce
 # print(reduce(add_two, ['hello', 'hi', 'привет'], 'START:'))
-#
-#
+
+
 # ## Пример функции zip
 # ## Объединяет элементы с одинаковым индексом
-# a = tuple(range(10))
-# b = list(range(11, 17))
-# c = list(range(101, 120))
-# d = 'hello python'
-# print(list(zip(a, b, c, d)))
-#
-# # Пример на понимание
-# d = dict(zip('hello', range(8)))
-# print(len(d))  # Out: 4
-# print(d)
+a = tuple(range(10))
+b = list(range(11, 17))
+c = list(range(101, 120))
+d = 'hello python'
+print(list(zip(a, b, c, d)))
 
+# # Пример на понимание работы словаря
+d = dict(zip('pythonpy', range(8)))
+print(len(d))  #
+print(d)
+# =====
+# PAUSE
+# =====
 # Замыкания
 # Замыкание (англ. closure) в программировании — функция первого класса,
 # в теле которой присутствуют ссылки на переменные, объявленные вне тела
